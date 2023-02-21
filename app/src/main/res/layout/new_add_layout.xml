@@ -6,30 +6,55 @@
     android:orientation="vertical"
     >
     <TextView
-        android:id="@+id/tvAddItem"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add Item"
-        android:textSize="@dimen/margin_30sp"
-        android:layout_marginLeft="@dimen/margin_10dp"
-        android:layout_marginTop="@dimen/margin_10dp"/>
-
-    <EditText
-        android:id="@+id/etAmount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_20dp"
-        android:hint="Enter Amount"
-        android:layout_marginLeft="@dimen/margin_10dp"
-
-        />
-    <Button
-        android:id="@+id/btnAddItem"
+        android:id="@+id/tvNewItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/margin_10dp"
-        android:text="Add"/>
+        android:text="@string/enter_title"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        />
+    <EditText
+        android:id="@+id/etNewItem"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_title"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_description"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        />
+    <EditText
+        android:id="@+id/etDescription"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_description"
+        />
+    <Button
+        android:id="@+id/btnOk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="Ok"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        />
+    <Button
+        android:visibility="gone"
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="Delete"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        />
 
 </LinearLayout>
 </layout>

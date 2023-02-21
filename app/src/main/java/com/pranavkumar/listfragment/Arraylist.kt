@@ -2,6 +2,7 @@ package com.pranavkumar.listfragment
 
 import android.R
 import android.app.Dialog
+import android.os.AsyncTask
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -47,7 +48,7 @@ class Arraylist : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         binding = FragmentArrayListBinding.inflate(layoutInflater)
         var adapter = ArrayAdapter(requireContext(), R.layout.simple_list_item_1, arrayList)
         var dialog = Dialog(requireContext())
@@ -62,11 +63,18 @@ class Arraylist : Fragment() {
             dialog.setContentView(dialogBinding.root)
             dialog.window?.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT)
 
-            dialogBinding.btnAddItem.setOnClickListener {
-                if (dialogBinding.etAmount.text.toString().isNullOrEmpty()) {
-                    dialogBinding.etAmount.setError("Enter New Item")
-                } else {
-                    arrayList.add(dialogBinding.etAmount.text.toString())
+            dialogBinding.btnOk.setOnClickListener {
+                if (dialogBinding.etNewItem.text.toString().isNullOrEmpty()) {
+                    dialogBinding.etNewItem.setError("Enter New Item")
+                }else if(dialogBinding.etDescription.text.toString().isNullOrEmpty()){
+                    dialogBinding.etDescription.setError("Enter Description")
+                }
+                else {
+                    saveData(
+                        dialogBinding.etNewItem.text.toString(),
+                        dialogBinding.etDescription.text.toString()
+                    )
+                    arrayList.add(dialogBinding.etNewItem.text.toString())
                     dialog.dismiss()
                 }
 
@@ -77,7 +85,7 @@ class Arraylist : Fragment() {
 
 
 
-    binding.list.setOnItemClickListener { adapterView, view, i, l ->
+      binding.fabAdd.setOnClickListener{
         var dialogBinding = UpdateLayoutBinding.inflate(layoutInflater)
         var dialog = Dialog(requireContext())
         dialog.setContentView(dialogBinding.root)
@@ -87,6 +95,7 @@ class Arraylist : Fragment() {
             if (dialogBinding.etUpdate.text.toString().isNullOrEmpty()) {
                 dialogBinding.etUpdate.setError("Enter Update Item")
             } else {
+
                 arrayList.set(i, dialogBinding.etUpdate.text.toString())
                 dialog.dismiss()
             }
@@ -96,6 +105,15 @@ class Arraylist : Fragment() {
 
     return binding.root
 }
+    private fun saveData(){
+        class save : AsyncTask<Void, Void ,Void>(){
+            override fun doInBackground(vararg p0: Void?): Void {
+                var notesEntiity = NotesEntiity()
+                notesEntiity.title= string
+                notesEntiity.description= toString()
+            }
+        }
+    }
 
 
 

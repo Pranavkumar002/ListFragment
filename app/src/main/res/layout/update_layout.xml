@@ -1,34 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
     <TextView
-        android:id="@+id/tvUpdateItem"
+        android:id="@+id/tvDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Update Item"
-        android:textSize="@dimen/margin_30sp"
-        android:layout_marginLeft="@dimen/margin_10dp"
-        android:layout_marginTop="@dimen/margin_10dp"/>
-
-    <EditText
-        android:id="@+id/etUpdate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_20dp"
-        android:layout_marginLeft="@dimen/margin_10dp"
-
+        android:text="@string/enter_title"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
         />
-    <Button
-        android:id="@+id/btnUpdateItem"
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_title"
+        />
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/margin_10dp"
-        android:text="Update"/>
+        android:text="@string/enter_description"
+        android:textSize="20sp"
+        android:maxLines="5"
+        android:id="@+id/tvDescription"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        />
 
 </LinearLayout>
 </layout>
